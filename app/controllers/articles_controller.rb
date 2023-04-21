@@ -1,13 +1,18 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: %i[edit update show destroy]
+
+    #seleciona o artigo
+    def set_article
+        @article = Article.find(params[:id])
+    end
+    
     #id do artigo
     def index
         @articles = Article.all    
     end
 
     #abre o artigo
-    def show
-        @article = Article.find(params[:id])
-    end
+    def show; end
 
     #cria um artigo
     def new
@@ -25,13 +30,10 @@ class ArticlesController < ApplicationController
     end
 
     #permite a edição do artigo
-    def edit
-        @article = Article.find(params[:id])        
-    end
+    def edit; end
     
     #salva a edição do artigo
     def update
-        @article = Article.find(params[:id])
         if @article.update(article_params)
             redirect_to @article
         else
@@ -39,6 +41,11 @@ class ArticlesController < ApplicationController
         end    
     end
     
+    #exclui o artigo
+    def destroy
+        @article.destroy        
+        redirect_to root_path
+    end
 
     private
     #verifica se o artigo esta dentro das regras para ser postado
