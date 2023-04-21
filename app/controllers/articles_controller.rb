@@ -24,6 +24,22 @@ class ArticlesController < ApplicationController
         end
     end
 
+    #permite a edição do artigo
+    def edit
+        @article = Article.find(params[:id])        
+    end
+    
+    #salva a edição do artigo
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(article_params)
+            redirect_to @article
+        else
+            render :edit
+        end    
+    end
+    
+
     private
     #verifica se o artigo esta dentro das regras para ser postado
     def article_params
