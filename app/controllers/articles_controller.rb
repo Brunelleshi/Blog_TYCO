@@ -6,9 +6,9 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
     
-    #id do artigo
     def index
-        @articles = Article.all    
+        current_page = (params[:page] || 1).to_i
+        @articles = Article.order(created_at: :desc).page(current_page).per(3)    
     end
 
     #abre o artigo

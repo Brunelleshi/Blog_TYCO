@@ -1,5 +1,6 @@
+<!--renderiza o artigo em destaque maior-->
 <%= render 'longer_featured' %>
-
+<!--renderiza os artigos em destaque menores-->
 <div class="row mb-2">
 <%= render 'minor_featured' %>
 <%= render 'minor_featured' %>
@@ -8,14 +9,17 @@
 <div class="row g-5">
     <div class="col-md-8">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        From the Firehose
+        More cars advertised
     </h3>
     <p>
+    <!--botão para criar um novo artigo-->
     <%= link_to 'Post a new article', new_article_path, class: "btn btn-primary" %>
     </p>
+    <!--renderiza os artigos-->
     <%= render @articles %>
     <%= render 'pagination' %>
     </div>
+    <!--renderiza as informações ao lado das postagens-->
     <%= render 'side_infos' %>
 </div>
 
