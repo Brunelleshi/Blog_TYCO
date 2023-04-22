@@ -1,9 +1,9 @@
 <!--renderiza o artigo em destaque maior-->
-<%= render 'longer_featured' %>
+<%= render_if @highlights[0].present?, 'longer_featured', article: @highlights[0] %>
 <!--renderiza os artigos em destaque menores-->
 <div class="row mb-2">
-<%= render 'minor_featured' %>
-<%= render 'minor_featured' %>
+    <%= render_if @highlights[1].present?, 'minor_featured', article: @highlights[1] %>
+    <%= render_if @highlights[2].present?, 'minor_featured', article: @highlights[2] %>
 </div>
 
 <div class="row g-5">
