@@ -1,10 +1,5 @@
 class ArticlesController < ApplicationController
     before_action :set_article, only: %i[edit update show destroy]
-
-    #seleciona o artigo
-    def set_article
-        @article = Article.find(params[:id])
-    end
     
     def index
         @highlights = Article.desc_order.first(3)
@@ -26,7 +21,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         if @article.save
-            redirect_to @article
+            redirect_to @article, notice: "Article was successfully created."
         else
             render :new
         end
@@ -38,7 +33,7 @@ class ArticlesController < ApplicationController
     #salva a edição do artigo
     def update
         if @article.update(article_params)
-            redirect_to @article
+            redirect_to @article, notice: "Article was successfully updated."
         else
             render :edit
         end    
@@ -47,13 +42,18 @@ class ArticlesController < ApplicationController
     #exclui o artigo
     def destroy
         @article.destroy        
-        redirect_to root_path
+        redirect_to root_path, notice: "Article was successfully deleted." 
     end
 
     private
     #verifica se o artigo esta dentro das regras para ser postado
     def article_params
-        params.require(:article).permit(:title, :body)      
+        params.require(:article).permit(:title, :body, :category_id)      
+    end
+
+    #seleciona o artigo
+    def set_article
+        @article = Article.find(params[:id])
     end
 
 end
