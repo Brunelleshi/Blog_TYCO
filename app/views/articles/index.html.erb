@@ -1,11 +1,22 @@
-<h1>TYCO Blog</h1>
+<%= render 'longer_featured' %>
 
-<%= link_to 'Post a new article', new_article_path %>
+<div class="row mb-2">
+<%= render 'minor_featured' %>
+<%= render 'minor_featured' %>
+</div>
 
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title, article %>
-        </li>
-    <% end %>
-</ul>
+<div class="row g-5">
+    <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Firehose
+    </h3>
+    <p>
+    <%= link_to 'Post a new article', new_article_path, class: "btn btn-primary" %>
+    </p>
+    <%= render @articles %>
+    <%= render 'pagination' %>
+    </div>
+    <%= render 'side_infos' %>
+</div>
+
+
