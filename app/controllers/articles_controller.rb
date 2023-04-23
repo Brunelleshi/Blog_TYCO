@@ -55,6 +55,7 @@ class ArticlesController < ApplicationController
     #seleciona o artigo
     def set_article
         @article = Article.find(params[:id])
+        authorize @article
     end
 
 end

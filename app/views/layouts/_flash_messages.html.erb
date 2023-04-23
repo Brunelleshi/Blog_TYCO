@@ -1,14 +1,18 @@
+
+
 <% if notice.present? %>
     <!--Alerta verde de sucesso-->
-    <div class="alert alert-success" role="alert">
-        <%= notice %>
+    <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+            <%= notice %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <% end %>
 
 <% if alert.present? %>
     <!--Alerta vermelho de atenção-->
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
         <%= alert %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <% end %>
 

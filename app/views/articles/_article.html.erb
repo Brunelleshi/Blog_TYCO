@@ -2,9 +2,10 @@
     <!--titulo do artigo-->
     <h2 class="blog-post-title mb-1"><%= article.title %></h2>
     <!--data e usuario que postou-->
-    <p class="blog-post-meta"><%= day_month_year(article.created_at) %> by <%= @article.user.email%></p>
+    <p class="blog-post-meta"><%= day_month_year(article.created_at) %> by <%= article.user.email%></p>
     <!--artigo com limitação de caracteres-->
     <%= truncate(article.body, length: 1315) %>
-    <p><%= link_to 'More...', article, class: "btn btn-link" %>
+    <p></p>
+    <p><%= link_to 'More...', article, class: 'btn btn-secondary' %>
 
 </article>
