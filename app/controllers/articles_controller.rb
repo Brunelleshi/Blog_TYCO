@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
     before_action :set_article, only: %i[edit update show destroy]
     before_action :authenticate_user!, except: %i[index show]
+    before_action :set_categories, Only: %i[new create edit update]
     
     def index
         @categories = Category.sorted
@@ -70,6 +71,10 @@ class ArticlesController < ApplicationController
     def set_article
         @article = Article.find(params[:id])
         authorize @article
+    end
+
+    def set_categories
+        @categories = Category.sorted        
     end
 
 end
