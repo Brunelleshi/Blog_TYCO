@@ -8,7 +8,7 @@
             <!--titulo-->
             <h3 class="mb-0"><%= article.title %></h3>
             <!--data da postagem-->
-            <div class="mb-1 text-body-secondary"><%= day_month_year(article.created_at) %></div>
+            <div class="mb-1 text-body-secondary"><%= day_month_year(article.created_at) %> by <%= article.user.email %></div>
             <!--corpo-->
             <p class="card-text mb-auto"><%= truncate(article.body, length: 160) %></p>
             <!--leia mais-->

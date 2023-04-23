@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
     before_action :set_article, only: %i[edit update show destroy]
+    before_action :authenticate_user!, except: %i[index show]
     
     def index
         @highlights = Article.desc_order.first(3)
@@ -14,12 +15,12 @@ class ArticlesController < ApplicationController
 
     #cria um artigo
     def new
-        @article = Article.new
+        @article = current_user.articles.new
     end
 
     #salva o novo artigo
     def create
-        @article = Article.new(article_params)
+        @article = current_user.articles.new(article_params)
         if @article.save
             redirect_to @article, notice: "Article was successfully created."
         else

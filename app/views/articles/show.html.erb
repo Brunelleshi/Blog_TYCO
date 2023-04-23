@@ -2,7 +2,7 @@
     <!--titulo-->
     <h2 class="blog-post-title mb-1"><%= @article.title %></h2>
     <!--data e usuario que postou-->
-    <p class="blog-post-meta"><%= day_month_year(@article.created_at) %> by <a href="#">Chris</a></p>
+    <p class="blog-post-meta"><%= day_month_year(@article.created_at) %> by <%= @article.user.email %></p>
     <!--corpo do artigo-->
     <p><%= @article.body %><p>
     <!--botões-->
