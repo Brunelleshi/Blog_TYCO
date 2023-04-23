@@ -5,11 +5,13 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
     
     def index
-        category = Category.find_by_name(params[:category]) if params[:category].present?
-        @highlights = Article.filter_by_category(category).desc_order.first(3)
-        highlights_ids = @highlights.pluck(:id).join(',')
-        @articles = Article.without_highlights(highlights_ids).filter_by_category(category).desc_order.page(current_page) 
         @categories = Category.sorted
+        category = @categories.select { |c| c.name == params[:category] }[0] if params[:category].present?
+
+        @highlights = Article.includes(:category, :user).filter_by_category(category).desc_order.first(3)
+        highlights_ids = @highlights.pluck(:id).join(',')
+        @articles = Article.includes(:category, :user).without_highlights(highlights_ids)
+                    .filter_by_category(category).desc_order.page(current_page) 
     end
 
     #abre o artigo
