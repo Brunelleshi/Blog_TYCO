@@ -4,6 +4,10 @@
                     <h5 class="card-title">Commenter: <%= comment.user.email %></h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><%= day_month_year(comment.created_at) %></h6>
             <p class="card-text"><%= comment.body %></p>
+                <%= link_to 'Exclude', article_comment_path(@article, comment),
+                                        method: :delete,
+                                        data: { confirm: 'Are you sure?' },
+                                        class: "btn btn-danger" if policy(comment).destroy? %>
         </div>
     </div>
 <% end %>

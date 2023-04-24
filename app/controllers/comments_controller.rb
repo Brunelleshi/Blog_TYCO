@@ -7,9 +7,18 @@ class CommentsController < ApplicationController
         else
             @article.comments.create(comment_params.to_h.merge!({ user_id: 4 }))
         end
-        redirect_to article_path(@article), notice: 'Comment was successfully created.'
+
+        redirect_to article_path(@article), notice: 'Comment was successfully created.'    
     end
-    
+
+    def destroy
+        comment = @article.comments.find(params[:id])
+        authorize comment
+
+        comment.destroy
+        redirect_to article_path(@article), notice: 'Comment was successfully deleted.'
+    end
+        
     private 
 
     def set_article
