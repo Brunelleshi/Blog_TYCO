@@ -3,16 +3,30 @@ class ArticlesController < ApplicationController
 
     before_action :set_article, only: %i[edit update destroy]
     before_action :authenticate_user!, except: %i[index show]
+<<<<<<< HEAD
     before_action :set_categories, only: %i[new create edit update]
+=======
+    before_action :set_categories, only: %i[new create edit update]
+>>>>>>> 328bdecd5d864456618284630a4760d2c1b461f6
     
     def index
         @categories = Category.sorted
         category = @categories.select { |c| c.name == params[:category] }[0] if params[:category].present?
 
-        @highlights = Article.includes(:category, :user).filter_by_category(category).desc_order.first(3)
+        @highlights = Article.includes(:category, :user)
+                    .filter_by_category(category)
+                    .filter_by_archive(params[:month_year])
+                    .desc_order.first(3)
+                    
         highlights_ids = @highlights.pluck(:id).join(',')
-        @articles = Article.includes(:category, :user).without_highlights(highlights_ids)
-                    .filter_by_category(category).desc_order.page(current_page) 
+
+        @articles = Article.includes(:category, :user)
+                    .without_highlights(highlights_ids)
+                    .filter_by_category(category)
+                    .filter_by_archive(params[:month_year])
+                    .desc_order.page(current_page)
+                    
+        @archives = Article.group_by_month(:created_at, format: '%B %Y').count
     end
 
     #abre o artigo
@@ -67,7 +81,11 @@ class ArticlesController < ApplicationController
     end
 
     def set_categories
+<<<<<<< HEAD
         @categories = Category.sorted
+=======
+        @categories = Category.sorted        
+>>>>>>> 328bdecd5d864456618284630a4760d2c1b461f6
     end
 
 end
