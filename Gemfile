@@ -67,3 +67,5 @@ gem 'rolify', '~> 6.0'
 gem "groupdate", "~> 6.2"
 
 gem 'pg', '~> 1.5', group: :production
+
+gem "dockerfile-rails", ">= 1.2", :group => :development

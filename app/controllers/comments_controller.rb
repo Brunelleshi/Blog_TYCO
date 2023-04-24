@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
         if user_session.present?
             @article.comments.create(comment_params.to_h.merge!({ user_id: current_user.id }))
         else
-            @article.comments.create(comment_params.to_h.merge!({ user_id: 2 }))
+            @article.comments.create(comment_params.to_h.merge!({ user_id: 1 }))
         end
 
         redirect_to article_path(@article), notice: 'Comment was successfully created.'    

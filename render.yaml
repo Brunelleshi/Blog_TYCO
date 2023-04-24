@@ -1,0 +1,18 @@
+databases:
+  - name: blogtycosql
+    databaseName: blogtycosql
+    user: blogtycosql_user
+
+services:
+  - type: web
+    name: blogtyco
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blogtycosql
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
