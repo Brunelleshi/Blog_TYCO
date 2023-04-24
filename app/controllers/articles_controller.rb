@@ -3,11 +3,7 @@ class ArticlesController < ApplicationController
 
     before_action :set_article, only: %i[edit update destroy]
     before_action :authenticate_user!, except: %i[index show]
-<<<<<<< HEAD
     before_action :set_categories, only: %i[new create edit update]
-=======
-    before_action :set_categories, only: %i[new create edit update]
->>>>>>> 328bdecd5d864456618284630a4760d2c1b461f6
     
     def index
         @categories = Category.sorted
@@ -81,11 +77,7 @@ class ArticlesController < ApplicationController
     end
 
     def set_categories
-<<<<<<< HEAD
         @categories = Category.sorted
-=======
-        @categories = Category.sorted        
->>>>>>> 328bdecd5d864456618284630a4760d2c1b461f6
     end
 
 end

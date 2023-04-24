@@ -1,6 +1,9 @@
-<div class="card mb-3">
-    <div class="card-body">
-
-        <p class="card-text"><%= comment.body %></p>
+<% if comment.user.present? %>
+    <div class="card mb-3">
+        <div class="card-body">
+                    <h5 class="card-title">Commenter: <%= comment.user.email %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= day_month_year(comment.created_at) %></h6>
+            <p class="card-text"><%= comment.body %></p>
+        </div>
     </div>
-</div>
+<% end %>
