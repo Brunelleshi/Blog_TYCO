@@ -41,6 +41,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem "letter_opener", "~> 1.8"
   gem "bullet"
+  gem "dockerfile-rails", ">= 1.2"
 end
 
 group :test do
@@ -67,5 +68,3 @@ gem 'rolify', '~> 6.0'
 gem "groupdate", "~> 6.2"
 
 gem 'pg', '~> 1.5', group: :production
-
-gem "dockerfile-rails", ">= 1.2", :group => :development
