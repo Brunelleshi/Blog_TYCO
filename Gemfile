@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.4'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -29,8 +31,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -41,7 +41,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem "letter_opener", "~> 1.8"
   gem "bullet"
-  gem "dockerfile-rails", ">= 1.2"
 end
 
 group :test do
@@ -67,4 +66,8 @@ gem 'rolify', '~> 6.0'
 
 gem "groupdate", "~> 6.2"
 
-gem 'pg', '~> 1.5', group: :production
+gem 'pg', group: :production
+
+gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "redis", "~> 5.0"
