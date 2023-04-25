@@ -5,6 +5,6 @@
         <!--corpo-->
         <p class="lead my-3"><%= truncate(article.body, length: 140) %></p>
         <!--leia mais-->
-        <%= link_to 'Continue reading...', article, class: "text-white fw-bold" %>
+        <%= link_to t('articles.continue_reading'), article, class: "text-white fw-bold" %>
     </div>
 </div>

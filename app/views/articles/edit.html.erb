@@ -1,4 +1,4 @@
-<h1>Edit article</h1>
+<h1><%= t('app.edit.title', model: Article.model_name.human) %></h1>
 <!--caixas para edição do artigo-->
 <%= render 'form', article: @article %>
 <!--cancela e retorna a postagem-->

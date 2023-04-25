@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
                     .filter_by_archive(params[:month_year])
                     .desc_order.page(current_page)
                     
-        @archives = Article.group_by_month(:created_at, format: '%B %Y').count
+        @archives = Article.group_by_month(:created_at, format: '%B %Y', locale: :en).count
     end
 
     #abre o artigo
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     def create
         @article = current_user.articles.new(article_params)
         if @article.save
-            redirect_to @article, notice: "Article was successfully created."
+            redirect_to @article, notice: t('.success')
         else
             render :new
         end
@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
     #salva a edição do artigo
     def update
         if @article.update(article_params)
-            redirect_to @article, notice: "Article was successfully updated."
+            redirect_to @article, notice: t('.success')
         else
             render :edit
         end    
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
     #exclui o artigo
     def destroy
         @article.destroy        
-        redirect_to root_path, notice: "Article was successfully deleted." 
+        redirect_to root_path, notice: t('.success')
     end
 
     private

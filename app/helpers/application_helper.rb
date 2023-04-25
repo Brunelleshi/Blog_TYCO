@@ -3,7 +3,11 @@ module ApplicationHelper
        render template, record if condition 
     end
 
-    def day_month_year(datetime)
-        datetime.strftime('%e, %B, %Y') 
+    def day_month_year(value)
+        l(value, format: '%B %e, %Y').capitalize 
+    end
+
+    def month_year(value)
+        l(value.to_datetime, format: '%B %Y').capitalize 
     end
 end

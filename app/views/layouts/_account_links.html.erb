@@ -4,13 +4,13 @@
     <%= current_user.email %>
   </button>
   <ul class="dropdown-menu">
-    <%= link_to 'Edit user', edit_user_registration_path, class: 'dropdown-item' %>
+    <%= link_to t('app.menu.edit_user'), edit_user_registration_path, class: 'dropdown-item' %>
     <li><hr class="dropdown-divider"></li>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+    <%= link_to t('app.menu.sign_out'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
   </ul>
 </div>
 
 <% else %>
-    <%= link_to 'Sign in', new_user_session_path, class: 'link-secundary' %>&nbsp;&nbsp;
-    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
+    <%= link_to t('app.menu.sign_in'), new_user_session_path, class: 'link-secundary' %>&nbsp;&nbsp;
+    <%= link_to t('app.menu.sign_up'), new_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
 <% end %>

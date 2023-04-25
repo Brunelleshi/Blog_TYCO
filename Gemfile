@@ -71,3 +71,5 @@ gem 'pg', group: :production
 gem "dockerfile-rails", ">= 1.2", :group => :development
 
 gem "redis", "~> 5.0"
+
+gem 'devise-i18n'

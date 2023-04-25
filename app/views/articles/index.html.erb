@@ -9,11 +9,11 @@
 <div class="row g-5">
     <div class="col-md-8">
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        More cars advertised
+        <%= t '.subtitle' %>
     </h3>
     <p>
     <!--botão para criar um novo artigo-->
-        <%= link_to 'Post a new article', new_article_path, class: "btn btn-primary" if user_signed_in? %>
+        <%= link_to  t('articles.new.title'), new_article_path, class: "btn btn-primary" if user_signed_in? %>
     </p>
     <!--renderiza os artigos-->
     <%= render @articles %>

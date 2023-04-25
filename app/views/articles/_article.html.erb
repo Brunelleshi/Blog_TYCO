@@ -6,6 +6,6 @@
     <!--artigo com limitação de caracteres-->
     <%= truncate(article.body, length: 1315) %>
     <p></p>
-    <p><%= link_to 'More...', article, class: 'btn btn-secondary' %>
+    <p><%= link_to t('articles.continue_reading') , article, class: 'btn btn-secondary' %>
 
 </article>

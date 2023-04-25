@@ -1,0 +1,25 @@
+en:
+  articles:
+    continue_reading: Continue reading...
+    about:
+      title: About
+      description: Trade Your Car Online, better known as TYCO, is an online platform launched in 1991 that was one of the first sites for buying, selling and auctioning cars in Canada, expanding to the rest of the Americas in the following years. It's simple, light and intuitive interface helped its users to get used to the technology that in the 90's was very advanced and with an aggressive marketing campaign on TV and sponsorships in racing cars, the site became increasingly famous.
+    archives: Archives
+    elsewhere: Elsewhere
+    index:
+      subtitle: More cars advertised
+      new_article: New Article
+    new:
+      title: New Article
+    create:
+      success: Article was successfully created.
+    update:
+      success: Article was successfully updated.
+    destroy:
+      success: Article was successfully deleted.
+    form:
+      choose_category: Choose a Category
+    show:
+      comments: Comments
+      add_comment: "Add a comment:"
+      login_create_comment: Please, login to create a comment.

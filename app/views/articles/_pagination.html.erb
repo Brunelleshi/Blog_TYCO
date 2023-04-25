@@ -1,6 +1,6 @@
 <nav class="blog-pagination" aria-label="Pagination">
     <!--página passada-->
-    <%= link_to_previous_page @articles, 'Previous', class: "btn btn-outline-primary rounded-pill" %>
+    <%= link_to_previous_page @articles, t('app.pagination.previous'), class: "btn btn-outline-primary rounded-pill" %>
     <!--próxima página-->
-    <%= link_to_next_page @articles, 'Next', class: "btn btn-outline-primary rounded-pill" %>
+    <%= link_to_next_page @articles, t('app.pagination.newer'), class: "btn btn-outline-primary rounded-pill" %>
 </nav>
